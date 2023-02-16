@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import PictureCard from '@/components/PictureCard';
 import FindSeatForm from '@/components/FindSeatForm';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -68,7 +69,7 @@ export default function Home() {
 
         {/**Find My Seat Form */}
         <FindSeatForm/>
-        <a href='/schedule'>Schedule</a>
+        <Link href='/schedule'>Schedule</Link>
 
         {/**Picture Grid */}
         <div className='grid grid-cols-4 text-black'>
