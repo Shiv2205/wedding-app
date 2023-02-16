@@ -55,7 +55,7 @@ export default function Home() {
       <Head>
         <title>Oy & Manisha's App</title>
         <meta name="description" content="Web app for wedding day." />
-        <meta name="viewport" content="width=500, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -72,7 +72,7 @@ export default function Home() {
         <Link href='/schedule'>Schedule</Link>
 
         {/**Picture Grid */}
-        <div className='grid grid-cols-4 text-black'>
+        <div className='grid text-black lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2'>
           {
             pictureGrid.map((item, index) => {
               return <PictureCard key={index} path={item.src} caption={item.caption} />
