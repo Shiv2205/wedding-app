@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter, Great_Vibes } from '@next/font/google';
 import PictureCard from '@/components/PictureCard';
 import FindSeatForm from '@/components/FindSeatForm';
 import Link from 'next/link';
+import Schedule from './schedule';
+import { useRef } from 'react';
+import Navbar from '@/components/Navbar';
 
 // const inter = Inter({ 
 //   weight: '400',
@@ -12,6 +13,10 @@ import Link from 'next/link';
 
 
 export default function Home() {
+
+  const findSeatRef = useRef(null);
+  const scheduleRef = useRef(null);
+  const pictureGridRef = useRef(null);
 
   const imgPath = 'https://imgs.search.brave.com/MrnK8fVlSuduWgWdQajGUV7iddEaWvegR9HLILdhg7E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMud2FsbHBhcGVy/c2Rlbi5jb20vaW1h/Z2UvZG93bmxvYWQv/Zmx5aW5nLW1pbGVz/LW1vcmFsZXMtbWFy/dmVscy1zcGlkZXIt/bWFuX2JHbHNibVdV/bVpxYXJhV2twSlJv/YldsbHJXZG1hMlUu/anBn';
 
@@ -65,6 +70,11 @@ export default function Home() {
 
       <main className='text-white'>
         {/**TODO:NavBar */}
+        <Navbar references={{
+          findSeat: findSeatRef,
+          schedule: scheduleRef,
+          pictureGrid: pictureGridRef
+        }}/>
 
         {/**First Image */}
         <div>
@@ -72,11 +82,17 @@ export default function Home() {
         </div>
 
         {/**Find My Seat Form */}
-        <FindSeatForm/>
+        <div ref={findSeatRef}>
+          <FindSeatForm />
+        </div>
         <Link href='/schedule'>Schedule</Link>
 
+        <div ref={scheduleRef}>
+          <Schedule />
+        </div>
+
         {/**Picture Grid */}
-        <div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3'>
+        <div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' ref={pictureGridRef}>
           {
             pictureGrid.map((item, index) => {
               return <PictureCard key={index} path={item.src} caption={item.caption} />
