@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Oy & Manisha`'`s App</title>
+        <title>Oy & Manisha App</title>
         <meta name="description" content="Web app for wedding day." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
