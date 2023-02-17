@@ -1,11 +1,15 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
+import { Inter, Great_Vibes } from '@next/font/google';
 import PictureCard from '@/components/PictureCard';
 import FindSeatForm from '@/components/FindSeatForm';
 import Link from 'next/link';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ 
+//   weight: '400',
+//   subsets: ['latin'] })
+
+
 
 export default function Home() {
 
@@ -59,7 +63,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-slate-900 text-white'>
+      <main className='text-white'>
         {/**TODO:NavBar */}
 
         {/**First Image */}
@@ -72,7 +76,7 @@ export default function Home() {
         <Link href='/schedule'>Schedule</Link>
 
         {/**Picture Grid */}
-        <div className='grid text-black lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2'>
+        <div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2'>
           {
             pictureGrid.map((item, index) => {
               return <PictureCard key={index} path={item.src} caption={item.caption} />
