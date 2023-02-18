@@ -1,5 +1,4 @@
-import PictureCard from "../components/PictureCard";
-import pictures from '../../public/data/pictures';
+import PictureCard from "./PictureCard";
 import { useEffect } from "react";
 
 const PictureGrid = ({ pictureGrid }) => {

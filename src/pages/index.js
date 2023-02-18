@@ -4,7 +4,7 @@ import Schedule from './schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import PictureGrid from './PictureGrid';
+import PictureGrid from '../components/PictureGrid';
 import pictures from '../../public/data/pictures';
 
 
