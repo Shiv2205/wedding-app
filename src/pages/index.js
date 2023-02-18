@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Schedule from './schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
 
 // const inter = Inter({ 
 //   weight: '400',
@@ -41,7 +42,7 @@ export default function Home() {
       caption: "pic 4"
     },
     {
-      src: imgPath,
+      src: 'https://imgs.search.brave.com/MrnK8fVlSuduWgWdQajGUV7iddEaWvegR9HLILdhg7E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMud2FsbHBhcGVy/c2Rlbi5jb20vaW1h/Z2UvZG93bmxvYWQv/Zmx5aW5nLW1pbGVz/LW1vcmFsZXMtbWFy/dmVscy1zcGlkZXIt/bWFuX2JHbHNibVdV/bVpxYXJhV2twSlJv/YldsbHJXZG1hMlUu/anBn',
       caption: "pic 5"
     },
     {
@@ -78,21 +79,23 @@ export default function Home() {
 
         {/**First Image */}
         <div>
-          <img src="/test_img.jpg" className='w-full'  alt="test"/>
+          <Hero references={findSeatRef}/>
         </div>
-
+        
+        <div className='divider text-2xl' ref={findSeatRef}>Find My Seat</div>
         {/**Find My Seat Form */}
-        <div ref={findSeatRef}>
+        <div className='mb-10'>
           <FindSeatForm />
         </div>
-        <Link href='/schedule'>Schedule</Link>
-
-        <div ref={scheduleRef}>
+        
+        <div className='divider text-2xl' ref={scheduleRef}>Schedule</div>
+        <div >
           <Schedule />
         </div>
 
         {/**Picture Grid */}
-        <div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' ref={pictureGridRef}>
+        <div className='divider text-2xl' ref={pictureGridRef}>Gallery</div>
+        <div className='grid text-black my-10 grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' >
           {
             pictureGrid.map((item, index) => {
               return <PictureCard key={index} path={item.src} caption={item.caption} />
@@ -103,3 +106,16 @@ export default function Home() {
     </>
   )
 }
+
+/**
+ * <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
+            src={path}/>
+
+<div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' >
+          {
+            pictureGrid.map((item, index) => {
+              return <PictureCard key={index} path={item.src} caption={item.caption} />
+            })
+          }
+        </div>
+ */
