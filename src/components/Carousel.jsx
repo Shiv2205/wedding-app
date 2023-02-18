@@ -3,9 +3,7 @@ import scrollNav from "@/util/scrollNav";
 
 const Carousel = ({ pictures, references }) => {
   return (
-    <div className="hero">
-      <div className="hero-overlay bg-opacity-20">
-        <div className="carousel w-full">
+        <div className="carousel rounded-box ml-14 w-11/12">
           {pictures.map((item, index) => {
             return (
               <div
@@ -45,24 +43,6 @@ const Carousel = ({ pictures, references }) => {
             );
           })}
         </div>
-      </div>
-      <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md mt-40">
-          <h1 className="mt-5 text-5xl font-bold">Oy & Manisha</h1>
-          <p className="mt-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button
-            className="btn bg-yellow-500 text-white mt-5"
-            onClick={() => scrollNav(references)}
-          >
-            Get Started
-          </button>
-        </div>
-      </div>
-    </div>
   );
 };
 

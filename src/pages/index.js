@@ -45,7 +45,8 @@ export default function Home({ homePictureGrid }) {
 
         {/**First Image */}
         <div>
-          <Carousel pictures={homePictureGrid} references={findSeatRef}/>
+        <Hero references={findSeatRef}/>
+          
         </div>
         
         <div className='divider text-2xl' ref={findSeatRef}>Find My Seat</div>
@@ -61,7 +62,8 @@ export default function Home({ homePictureGrid }) {
 
         {/**Picture Grid */}
         <div className='divider text-2xl' ref={pictureGridRef}>Gallery</div>
-        <PictureGrid pictureGrid={homePictureGrid}/>
+        <Carousel pictures={homePictureGrid}/>
+        
       </main>
     </>
   )
@@ -90,4 +92,5 @@ export const getStaticProps = async () => {
         </div>
 
         <Hero references={findSeatRef}/>
+        <PictureGrid pictureGrid={homePictureGrid}/>
  */
