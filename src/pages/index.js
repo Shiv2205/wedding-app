@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '../components/PictureGrid';
 import pictures from '../../public/data/pictures';
+import Carousel from '@/components/Carousel';
 
 
 // const inter = Inter({ 
@@ -44,7 +45,7 @@ export default function Home({ homePictureGrid }) {
 
         {/**First Image */}
         <div>
-          <Hero references={findSeatRef}/>
+          <Carousel pictures={homePictureGrid} references={findSeatRef}/>
         </div>
         
         <div className='divider text-2xl' ref={findSeatRef}>Find My Seat</div>
@@ -87,4 +88,6 @@ export const getStaticProps = async () => {
             })
           }
         </div>
+
+        <Hero references={findSeatRef}/>
  */
