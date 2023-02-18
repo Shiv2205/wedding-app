@@ -9,6 +9,7 @@ const Carousel = ({ pictures, references }) => {
           {pictures.map((item, index) => {
             return (
               <div
+               key={index}
                 id={`slide${index}`}
                 className="carousel-item relative w-full"
               >
