@@ -1,6 +1,14 @@
 import scrollNav from "@/util/scrollNav";
 import Link from "next/link";
 
+const handleClick = (ref) => {
+    const elem = document.activeElement;
+    if(elem){
+      elem?.blur();
+    }
+    scrollNav(ref);
+}
+
 const Navbar = ({ references }) => {
   return (
     <div className="navbar bg-yellow-500 sticky top-0 z-10">
@@ -28,19 +36,19 @@ const Navbar = ({ references }) => {
           >
             <li
               className="pb-3 pl-3 pt-2 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
-              onClick={() => scrollNav(references.findSeat)}
+              onClick={() => handleClick(references.findSeat)}
             >
               Find My Seat
             </li>
             <li
               className="pb-3 pl-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
-              onClick={() => scrollNav(references.schedule)}
+              onClick={() => handleClick(references.schedule)}
             >
               Schedule
             </li>
             <li
               className="pb-3 pl-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
-              onClick={() => scrollNav(references.pictureGrid)}
+              onClick={() => handleClick(references.pictureGrid)}
             >
               Picture Grid
             </li>
