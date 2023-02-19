@@ -4,10 +4,11 @@ import Schedule from './schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import PictureGrid from '../components/PictureGrid';
 import pictures from '../../public/data/pictures';
 import Carousel from '@/components/Carousel';
-
+import Router from 'next/router';
+import PictureGrid from '@/components/PictureGrid';
+import Script from 'next/script';
 
 // const inter = Inter({ 
 //   weight: '400',
@@ -20,14 +21,9 @@ export default function Home({ homePictureGrid }) {
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
   const pictureGridRef = useRef(null);
-
-  const imgPath = 'https://imgs.search.brave.com/MrnK8fVlSuduWgWdQajGUV7iddEaWvegR9HLILdhg7E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMud2FsbHBhcGVy/c2Rlbi5jb20vaW1h/Z2UvZG93bmxvYWQv/Zmx5aW5nLW1pbGVz/LW1vcmFsZXMtbWFy/dmVscy1zcGlkZXIt/bWFuX2JHbHNibVdV/bVpxYXJhV2twSlJv/YldsbHJXZG1hMlUu/anBn';
-
-  const pictureGrid = pictures.pictureGrid;
-
   
   return (
-    <>
+    <div>
       <Head>
         <title>Oy & Manisha App</title>
         <meta name="description" content="Web app for wedding day." />
@@ -62,10 +58,9 @@ export default function Home({ homePictureGrid }) {
 
         {/**Picture Grid */}
         <div className='divider text-2xl' ref={pictureGridRef}>Gallery</div>
-        <Carousel pictures={homePictureGrid}/>
-        
+        <PictureGrid pictureGrid={homePictureGrid}/>
       </main>
-    </>
+    </div>
   )
 }
 
@@ -93,4 +88,5 @@ export const getStaticProps = async () => {
 
         <Hero references={findSeatRef}/>
         <PictureGrid pictureGrid={homePictureGrid}/>
+        <Carousel pictures={homePictureGrid}/>
  */

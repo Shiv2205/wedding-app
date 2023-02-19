@@ -1,9 +1,9 @@
 import Image from "next/image";
-import scrollNav from "@/util/scrollNav";
+import Link from "next/link";
 
-const Carousel = ({ pictures, references }) => {
+const Carousel = ({ pictures }) => {
   return (
-        <div className="carousel rounded-box ml-14 w-11/12">
+        <div className="carousel rounded-box w-11/12 self-center">
           {pictures.map((item, index) => {
             return (
               <div
@@ -16,9 +16,10 @@ const Carousel = ({ pictures, references }) => {
                   height={200}
                   src={item.src}
                   className="w-full"
+                  alt="text"
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a
+                  <Link
                     href={
                       index - 1 < 0
                         ? `#slide${pictures.length - 1}`
@@ -27,7 +28,7 @@ const Carousel = ({ pictures, references }) => {
                     className="btn btn-circle"
                   >
                     ❮
-                  </a>
+                  </Link>
                   <a
                     href={
                       index + 1 >= pictures.length
@@ -47,3 +48,16 @@ const Carousel = ({ pictures, references }) => {
 };
 
 export default Carousel;
+
+/**
+ *  <a
+                    href={
+                      index + 1 >= pictures.length
+                        ? `#slide${0}`
+                        : `#slide${index + 1}`
+                    }
+                    className="btn btn-circle"
+                  >
+                    ❯
+                  </a>
+ */

@@ -1,15 +1,34 @@
 import Image from "next/image";
+import { useRef, useEffect, useState } from "react";
+import cn from "@/util/cn";
 
-const PictureCard = ({ path, caption }) => {
+const PictureCard = ({ path, count }) => {
+
+    const size = useRef("");
+    const [viewport, setViewport] = useState(0);
+
+    useEffect(() => {
+      console.log(window.innerWidth);
+      setViewport(window.innerWidth);
+    });
+
+    const gallery = () => {
+      if(viewport > 600 && count%3 === 0){
+        return "row-span-2";
+      }
+      if(viewport <= 600 && count%2 === 0){
+        return "row-span-2";
+      }
+      return "";
+    }
+
+    console.log(count);
     return (
-    <div className="p-2">
-        <div className="max-w-sm rounded bg-white overflow-hidden shadow-2xl cursor-pointer">
-          <Image className="w-full" width={700} height={500} src={path} alt="Preview" priority />
+    <div className={cn("p-2", gallery())}>
+        <div 
+        className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer ">
+          <img className="w-full h-full" loading="eager"  src={path} alt="Preview"/>
 
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">Shivam</div>
-            <p className="text-gray-700 text-base">{caption}</p>
-          </div>
         </div>
     </div>
     );

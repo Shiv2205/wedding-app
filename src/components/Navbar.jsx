@@ -38,7 +38,7 @@ const Navbar = ({ references }) => {
               className="pb-3 pl-3 pt-2 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
               onClick={() => handleClick(references.findSeat)}
             >
-              Find My Seat
+             Find My Seat
             </li>
             <li
               className="pb-3 pl-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"

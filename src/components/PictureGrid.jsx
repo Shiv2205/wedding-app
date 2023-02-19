@@ -1,15 +1,20 @@
 import PictureCard from "./PictureCard";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
 
 const PictureGrid = ({ pictureGrid }) => {
+
+    const count = useRef(0);
+
     return ( 
-        <div className='grid text-black my-10 grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' >
-          {
-            pictureGrid.map((item, index) => {
-              return <PictureCard key={index} path={item.src} caption={item.caption} />
-            })
-          }
-        </div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3">
+        {
+          pictureGrid.map((item, index) => {
+            count.current += 1;
+            return <PictureCard key={index} path={item.src} count={count.current}/>;
+          })
+        }
+      </div>
      );
 }
 
