@@ -8,7 +8,6 @@ const PictureCard = ({ path, count }) => {
     const [viewport, setViewport] = useState(0);
 
     useEffect(() => {
-      console.log(window.innerWidth);
       setViewport(window.innerWidth);
     });
 
@@ -22,7 +21,6 @@ const PictureCard = ({ path, count }) => {
       return "";
     }
 
-    console.log(count);
     return (
     <div className={cn("p-2", gallery())}>
         <div 
