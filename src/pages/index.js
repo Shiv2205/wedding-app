@@ -28,7 +28,7 @@ export default function Home({ homePictureGrid }) {
       </Head>
 
       <main className='text-white'>
-        {/**TODO:NavBar */}
+        {/**NavBar */}
         <Navbar references={{
           findSeat: findSeatRef,
           schedule: scheduleRef,
