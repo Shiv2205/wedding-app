@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import FindSeatForm from '@/components/FindSeatForm';
-import Schedule from './schedule';
+import Schedule from '../components/schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
