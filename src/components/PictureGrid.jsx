@@ -1,5 +1,5 @@
 import PictureCard from "./PictureCard";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 
 const PictureGrid = ({ pictureGrid }) => {

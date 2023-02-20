@@ -1,10 +1,8 @@
-import Image from "next/legacy/image";
-import { useRef, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import cn from "@/util/cn";
 
 const PictureCard = ({ path, count }) => {
 
-    const size = useRef("");
     const [viewport, setViewport] = useState(0);
 
     useEffect(() => {

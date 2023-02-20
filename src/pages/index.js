@@ -4,7 +4,6 @@ import Schedule from './schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import pictures from '../../public/data/pictures';
 import PictureGrid from '@/components/PictureGrid';
 import fetchPictures from './api/firebase/fetchPictures';
 
