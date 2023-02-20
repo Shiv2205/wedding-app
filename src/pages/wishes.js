@@ -14,7 +14,7 @@ const Wishes = () => {
          return <div key={index} className="chat-bubble mb-5">
             This is an example of a wish.
             <br />
-            "Best wishes to the newly weds 💕🎉"
+            &quotBest wishes to the newly weds 💕🎉&quot
             <br />
             <p>
               From <i>Your</i> <i>Name</i>
