@@ -6,10 +6,8 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import pictures from '../../public/data/pictures';
 import PictureGrid from '@/components/PictureGrid';
-import firebase from './api/initFirebase';
 import fetchPictures from './api/firebase/fetchPictures';
 
-firebase();
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
