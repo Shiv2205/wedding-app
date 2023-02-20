@@ -8,7 +8,7 @@ const TimeLineItem = ({ time, title, description }) => {
 
     useEffect(() => {
         let currentTime = new Date();
-        let timeParts = time.split(':');
+        let timeParts = time ? time.split(':') : "";
         let eventTime = new Date(currentTime.getFullYear(), currentTime.getMonth(),
         currentTime.getDate(), parseInt(timeParts[0]), parseInt(timeParts[1]));
 
