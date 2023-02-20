@@ -5,8 +5,8 @@ import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '@/components/PictureGrid';
-import fetchPictures from './api/firebase/fetchPictures';
-import fetchSchedule from "./api/firebase/fetchSchedule";
+import { fetchPictures, fetchSchedule } from './api/firebase/fetchData';
+import firebaseApp from './api/initFirebase';
 
 // const inter = Inter({ 
 //   weight: '400',
