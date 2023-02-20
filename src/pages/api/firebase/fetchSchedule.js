@@ -1,14 +1,14 @@
 import firebaseApp from "../initFirebase";
 import { getDatabase, ref, onValue } from "firebase/database";
 
-const fetchPictures = async () => {
- let pictures =[{}];
+const fetchSchedule = async () => {
+ let schedule =[{}];
   const db = getDatabase(firebaseApp());
-  const pictureRef = ref(db, "database/pictureGrid/");
+  const pictureRef = ref(db, "database/schedule/");
   onValue(pictureRef, (snapshot) => {
-    pictures = snapshot.val();
+    schedule = snapshot.val();
   });
-    return pictures;  
+    return schedule;  
 };
 
-export default fetchPictures;
+export default fetchSchedule;

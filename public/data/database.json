@@ -1,0 +1,83 @@
+{
+    "database": {
+        "pictureGrid": [
+            {
+                "src": "/assets/img1.jfif",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img2.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img3.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img4.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img5.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img6.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img7.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img8.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            },
+    
+            {
+                "src": "/assets/img9.jpg",
+                "caption": "Lorem ipsum dolor sit amet"
+            }
+        ],
+
+        "schedule": [
+            {
+                "time": "12:30",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            },
+            {
+                "time": "13:25",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            },
+            {
+                "time": "15:00",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            },
+            {
+                "time": "17:20",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            },
+            {
+                "time": "18:30",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            },
+            {
+                "time": "23:00",
+                "title": "Start",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula."
+            }
+        ]
+    }
+}

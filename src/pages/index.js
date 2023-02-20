@@ -6,13 +6,14 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '@/components/PictureGrid';
 import fetchPictures from './api/firebase/fetchPictures';
+import fetchSchedule from "./api/firebase/fetchSchedule";
 
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
 fetchPictures();
 
-export default function Home({ homePictureGrid }) {
+export default function Home({ homePictureGrid, dbSchedule }) {
 
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
@@ -49,7 +50,7 @@ export default function Home({ homePictureGrid }) {
         
         <div className='divider text-2xl' ref={scheduleRef}>Schedule</div>
         <div >
-          <Schedule />
+          <Schedule timelineItems={dbSchedule} />
         </div>
 
         {/**Picture Grid */}
@@ -61,11 +62,13 @@ export default function Home({ homePictureGrid }) {
 }
 
 export const getStaticProps = async () => {
-  const pictureData = await fetchPictures();;
+  const pictureData = await fetchPictures();
+  const schedule = await fetchSchedule();
 
   return {
     props: {
-      homePictureGrid: pictureData
+      homePictureGrid: pictureData,
+      dbSchedule: schedule
     }
   }
 }
