@@ -25,7 +25,7 @@ const PictureCard = ({ path, count }) => {
     <div className={cn("p-2", gallery())}>
         <div 
         className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer ">
-          <img className="w-full h-full" loading="lazy"  src={path} alt="Preview"/>
+          <img className="w-full h-full" loading="eager"  src={path} alt="Preview"/>
 
         </div>
     </div>

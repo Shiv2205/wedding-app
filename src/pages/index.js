@@ -11,6 +11,7 @@ import fetchPictures from './api/firebase/fetchPictures';
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
+fetchPictures();
 
 export default function Home({ homePictureGrid }) {
 
