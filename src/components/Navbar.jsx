@@ -47,25 +47,25 @@ const Navbar = ({ references }) => {
               className="menu menu-normal dropdown-content mt-3 ml-5 shadow bg-base-200 w-52 float-right"
             >
               <li
-                className="pb-3 pl-3 pt-2 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
+                className="p-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
                 onClick={() => handleClick(references.findSeat)}
               >
                 Find My Seat
               </li>
               <li
-                className="pb-3 pl-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
+                className="p-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
                 onClick={() => handleClick(references.schedule)}
               >
                 Schedule
               </li>
               <li
-                className="pb-3 pl-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
+                className="p-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
                 onClick={() => handleClick(references.pictureGrid)}
               >
                 Picture Grid
               </li>
               <li
-                className="pb-3 pl-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
+                className="p-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
                 onClick={() => router.push("/wishes")}
               >
                 Make A Wish

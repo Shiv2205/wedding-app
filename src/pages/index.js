@@ -5,15 +5,16 @@ import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '@/components/PictureGrid';
-import { fetchPictures, fetchSchedule } from './api/firebase/fetchData';
-import firebaseApp from './api/initFirebase';
+import { fetchPictures, fetchSchedule } from './api/firebase/databaseOps';
 
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
-fetchPictures();
+
 
 export default function Home({ homePictureGrid, dbSchedule }) {
+
+  
 
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);

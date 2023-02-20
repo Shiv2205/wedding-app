@@ -1,5 +1,6 @@
 import {  useEffect, useState } from "react";
 import cn from "@/util/cn";
+import Image from "next/image";
 
 const PictureCard = ({ path, count }) => {
 
@@ -23,7 +24,7 @@ const PictureCard = ({ path, count }) => {
     <div className={cn("p-2", gallery())}>
         <div 
         className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer ">
-          <img className="w-full h-full" loading="eager"  src={path} alt="Preview"/>
+          <Image className="w-full h-full" width={2000} height={1000} loading="eager" priority src={path} alt="Preview"/>
 
         </div>
     </div>

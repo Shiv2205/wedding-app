@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images:{
-    domains: ['wallpapers.com']
+    domains: ['wallpapers.com', 'media.zenfs.com']
   }
 }
 
