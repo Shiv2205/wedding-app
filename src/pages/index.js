@@ -5,16 +5,14 @@ import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import pictures from '../../public/data/pictures';
-import Carousel from '@/components/Carousel';
-import Router from 'next/router';
 import PictureGrid from '@/components/PictureGrid';
-import Script from 'next/script';
+import firebase from './api/initFirebase';
+import fetchPictures from './api/firebase/fetchPictures';
 
+firebase();
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
-
-
 
 export default function Home({ homePictureGrid }) {
 
@@ -65,11 +63,11 @@ export default function Home({ homePictureGrid }) {
 }
 
 export const getStaticProps = async () => {
-  const pictureData = pictures;
+  const pictureData = await fetchPictures();;
 
   return {
     props: {
-      homePictureGrid: pictures.pictureGrid
+      homePictureGrid: pictureData
     }
   }
 }
