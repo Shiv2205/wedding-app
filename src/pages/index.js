@@ -61,7 +61,7 @@ export default function Home({ homePictureGrid, dbSchedule }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const pictureData = await fetchPictures();
   const schedule = await fetchSchedule();
 
