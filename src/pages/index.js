@@ -21,14 +21,9 @@ export default function Home({ homePictureGrid, dbSchedule }) {
   const pictureGridRef = useRef(null);
   
   return (
-    <div>
-      <Head>
-        <title>Oy & Manisha App</title>
-        <meta name="description" content="Web app for wedding day." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
+    <div>
+      {console.log(homePictureGrid, dbSchedule)}
       <main className='text-white'>
         {/**NavBar */}
         <Navbar references={{
@@ -55,7 +50,7 @@ export default function Home({ homePictureGrid, dbSchedule }) {
         </div>
 
         {/**Picture Grid */}
-        <div className='divider text-2xl' ref={pictureGridRef}>Gallery</div>
+        <div className='divider text-2xl mb-10' ref={pictureGridRef}>Gallery</div>
         <PictureGrid pictureGrid={homePictureGrid}/>
       </main>
     </div>

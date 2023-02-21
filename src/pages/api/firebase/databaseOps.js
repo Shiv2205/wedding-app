@@ -1,5 +1,5 @@
 import firebaseApp from "../initFirebase";
-import { getDatabase, ref, onValue, child, push, update } from "firebase/database";
+import { getDatabase, ref, onValue, child, push, update, get } from "firebase/database";
 import database from './database';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -7,12 +7,8 @@ const firebaseObj = firebaseApp();
 const db = getDatabase(firebaseObj);
 
 const fetchPictures = async () => {
-  let pictures =[{}];
-  const pictureRef = ref(db, "database/pictureGrid/");
-  onValue(pictureRef, (snapshot) => {
-    pictures = snapshot.val();
-  });
-    return pictures;  
+  const pictureRef = ref(db);
+  return (await get(child(pictureRef, "database/pictureGrid/"))).val();  
 };
 
 
@@ -23,12 +19,8 @@ const fetchSchedule = async () => {
 
 
 const fetchWishes = async () => {
-  let wishes =[{}];
-  const wishRef = ref(db, "database/wishes/");
-  onValue(wishRef, (snapshot) => {
-    wishes = snapshot.val();
-  });
-    return wishes; 
+  const wishRef = ref(db);
+  return (await get(child(wishRef, "database/wishes/"))).val(); 
 }
 
 const makeWish = async (wishId, wishText) => {
@@ -39,7 +31,7 @@ const makeWish = async (wishId, wishText) => {
       wish: wishText
     }
 
-    return update(ref(db), updates);
+    return await update(ref(db), updates);
 }
 
 export { fetchPictures, fetchSchedule, fetchWishes, makeWish };

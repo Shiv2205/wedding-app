@@ -26,7 +26,7 @@ const Wishes = ({ wishes }) => {
           <div className="chat-bubble mb-5">
             This is an example of a wish.
             <br />
-            &quotBest wishes to the newly weds 💕🎉&quot
+            <p>&quot;Best wishes to the newly weds 💕🎉&quot;</p>
             <br />
             <p>
               From <i>Your</i> <i>Name</i>
