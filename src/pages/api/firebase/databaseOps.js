@@ -1,6 +1,7 @@
-import firebaseApp from "../initFirebase";
-import { getDatabase, ref, onValue, child, push, update, get } from "firebase/database";
+import firebaseApp from '../initFirebase';
+import { getDatabase, ref, onValue, child, push, update, get } from 'firebase/database';
 import database from './database';
+import tables from '@/pages/api/tables.json';
 import { v4 as uuidv4 } from 'uuid';
 
 const firebaseObj = firebaseApp();
@@ -14,7 +15,7 @@ const fetchPictures = async () => {
 
 const fetchSchedule = async () => {
     const schedule = database.database.schedule;
-       return schedule;  
+    return schedule;  
 };
 
 
@@ -34,4 +35,9 @@ const makeWish = async (wishId, wishText) => {
     return await update(ref(db), updates);
 }
 
-export { fetchPictures, fetchSchedule, fetchWishes, makeWish };
+const fetchTableList = async () => {
+  const tableList = tables;
+  return tableList;
+}
+
+export { fetchPictures, fetchSchedule, fetchWishes, makeWish, fetchTableList };

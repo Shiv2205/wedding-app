@@ -39,12 +39,12 @@ function TimeLineItem({ time, title, description }) {
   return (
     <>
       <div className="flex flex-start items-center pt-3">
-        <div className={cn(currentEvent ? 'bg-yellow-500' : 'bg-gray-300 ', 'w-2 h-2 rounded-full -ml-1 mr-3')} />
-        <p className={cn(crossOff ? 'line-through text-gray-500' : '', 'text-white text-sm')}>{time}</p>
+        <div className={cn(currentEvent ? 'bg-pink-500 animate-heart-beat mask mask-heart w-4 h-4 -ml-2 mr-5' : 'bg-gray-300 rounded-full w-2 h-2 -ml-1 mr-3')} />
+        <p className={cn(crossOff ? 'line-through text-neutral-400' : 'text-white', ' text-sm')}>{time}</p>
       </div>
       <div className="mt-0.5 ml-4 mb-6">
-        <h4 className={cn(crossOff ? 'line-through text-gray-500' : '', 'text-white font-semibold text-xl mb-1.5')}>{title}</h4>
-        <p className={cn(crossOff ? 'line-through text-gray-500' : '', 'text-white mb-3')}>{description}</p>
+        <h4 className={cn(crossOff ? 'line-through text-neutral-400' : 'text-white', ' font-semibold text-xl mb-1.5')}>{title}</h4>
+        <p className={cn(crossOff ? 'line-through text-neutral-400' : 'text-white', ' mb-3')}>{description}</p>
       </div>
     </>
   );

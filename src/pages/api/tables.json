@@ -1,0 +1,78 @@
+{
+    "tables": [
+        {
+            "name": "Toronto",
+            "seatList": [
+                "Shivam Veerabudren", 
+                "Dashini Veerabudren",
+                "Philippe Akono", 
+                "Dorina Krobo",
+                "Parys Krobo",
+                "Maria Krobo", 
+                "Trisha Veerabudren"
+            ]
+        }, 
+
+        {
+            "name": "Paris", 
+            "seatList": [
+                "Melvina Veerabudren",
+                "Darvin Veerabudren",
+                "Daryl Mootoosawmy",
+                "Yoshinee Mootoosawmy"
+            ]
+        },
+
+        {
+            "name": "Madrid",
+            "seatList": [
+                "Shivam Veerabudren", 
+                "Dashini Veerabudren",
+                "Philippe Akono", 
+                "Dorina Krobo",
+                "Parys Krobo",
+                "Maria Krobo", 
+                "Trisha Veerabudren"
+            ]
+        },
+
+        {
+            "name": "LA",
+            "seatList": [
+                "Shivam Veerabudren", 
+                "Dashini Veerabudren",
+                "Philippe Akono", 
+                "Dorina Krobo",
+                "Parys Krobo",
+                "Maria Krobo", 
+                "Trisha Veerabudren"
+            ]
+        },
+
+        {
+            "name": "Tokyo",
+            "seatList": [
+                "Shivam Veerabudren", 
+                "Dashini Veerabudren",
+                "Philippe Akono", 
+                "Dorina Krobo",
+                "Parys Krobo",
+                "Maria Krobo", 
+                "Trisha Veerabudren"
+            ]
+        },
+
+        {
+            "name": "London",
+            "seatList": [
+                "Shivam Veerabudren", 
+                "Dashini Veerabudren",
+                "Philippe Akono", 
+                "Dorina Krobo",
+                "Parys Krobo",
+                "Maria Krobo", 
+                "Trisha Veerabudren"
+            ]
+        }
+    ]
+}

@@ -5,25 +5,26 @@ import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '@/components/PictureGrid';
-import { fetchPictures, fetchSchedule } from './api/firebase/databaseOps';
+import { fetchPictures, fetchSchedule, fetchTableList } from './api/firebase/databaseOps';
+import TableCollapseGrid from '@/components/TableCollapseGrid';
 
 // const inter = Inter({ 
 //   weight: '400',
 //   subsets: ['latin'] })
 
 
-export default function Home({ homePictureGrid, dbSchedule }) {
+export default function Home({ homePictureGrid, dbSchedule, tableList }) {
 
   
 
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
   const pictureGridRef = useRef(null);
-  
+  console.log(tableList);
+
   return (
 
     <div>
-      {console.log(homePictureGrid, dbSchedule)}
       <main className='text-white'>
         {/**NavBar */}
         <Navbar references={{
@@ -43,6 +44,9 @@ export default function Home({ homePictureGrid, dbSchedule }) {
         <div className='mb-10'>
           <FindSeatForm />
         </div>
+
+        <div className='divider text-2xl' >Tables</div>
+        <TableCollapseGrid tables={tableList.tables}/>
         
         <div className='divider text-2xl' ref={scheduleRef}>Schedule</div>
         <div >
@@ -60,11 +64,13 @@ export default function Home({ homePictureGrid, dbSchedule }) {
 export const getServerSideProps = async () => {
   const pictureData = await fetchPictures();
   const schedule = await fetchSchedule();
+  const tableList = await fetchTableList();
 
   return {
     props: {
       homePictureGrid: pictureData,
-      dbSchedule: schedule
+      dbSchedule: schedule,
+      tableList: tableList
     }
   }
 }
@@ -84,4 +90,6 @@ export const getServerSideProps = async () => {
         <Hero references={findSeatRef}/>
         <PictureGrid pictureGrid={homePictureGrid}/>
         <Carousel pictures={homePictureGrid}/>
+        <div className='divider text-2xl' >Tables</div>
+        <TableCollapseGrid/>
  */
