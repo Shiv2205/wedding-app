@@ -1,7 +1,7 @@
-const FindSeatForm = () => {
+function FindSeatForm() {
   return (
     <div className="max-w-sm rounded bg-yellow-500 ml-5 pl-5 overflow-hidden shadow-2xl cursor-pointer">
-      
+
       <br />
       <input
         type="text"
@@ -20,10 +20,10 @@ const FindSeatForm = () => {
       />
       <br />
 
-      {/**TOO: Implement arch function */}
+      {/** TOO: Implement arch function */}
       <button className="bg-base-100 rounded-md m-3 p-3">Find Seat</button>
     </div>
   );
-};
+}
 
 export default FindSeatForm;

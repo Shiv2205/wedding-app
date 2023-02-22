@@ -1,7 +1,7 @@
-import scrollNav from "@/util/scrollNav";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import scrollNav from '@/util/scrollNav';
 
 const handleClick = (ref) => {
   const elem = document.activeElement;
@@ -11,12 +11,12 @@ const handleClick = (ref) => {
   scrollNav(ref);
 };
 
-const Navbar = ({ references }) => {
+function Navbar({ references }) {
   const [wishes, setWishes] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname === "/wishes") {
+    if (router.pathname === '/wishes') {
       setWishes(true);
     }
   });
@@ -66,17 +66,19 @@ const Navbar = ({ references }) => {
               </li>
               <li
                 className="p-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
-                onClick={() => router.push("/wishes")}
+                onClick={() => router.push('/wishes')}
               >
                 Make A Wish
               </li>
             </ul>
           ) : (
-            <ul tabIndex={0}
-            className="menu menu-normal dropdown-content mt-3 ml-5 shadow bg-base-200 w-52 float-right">
+            <ul
+              tabIndex={0}
+              className="menu menu-normal dropdown-content mt-3 ml-5 shadow bg-base-200 w-52 float-right"
+            >
               <li
                 className="p-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
-              onClick={() => router.push("/")}
+                onClick={() => router.push('/')}
               >
                 Home Page
               </li>
@@ -85,7 +87,7 @@ const Navbar = ({ references }) => {
         </div>
       </div>
 
-      {/**CENTER */}
+      {/** CENTER */}
       <div className="navbar-end">
         <Link className="btn btn-ghost normal-case text-xl" href="/">
           Oy & Manisha
@@ -93,6 +95,6 @@ const Navbar = ({ references }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Navbar;

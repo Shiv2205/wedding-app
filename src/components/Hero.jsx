@@ -1,14 +1,14 @@
-import scrollNav from "@/util/scrollNav";
+import scrollNav from '@/util/scrollNav';
 
-const Hero = ({ references }) => {
+function Hero({ references }) {
   return (
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: `url("/test_img.jpg")`,
+        backgroundImage: 'url("/test_img.jpg")',
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-60" />
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md mt-40">
           <h1 className="mt-5 text-5xl font-bold">Oy & Manisha</h1>
@@ -22,6 +22,6 @@ const Hero = ({ references }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Hero;

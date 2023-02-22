@@ -1,34 +1,34 @@
-import {  useEffect, useState } from "react";
-import cn from "@/util/cn";
-import Image from "next/image";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import cn from '@/util/cn';
 
-const PictureCard = ({ path, count }) => {
+function PictureCard({ path, count }) {
+  const [viewport, setViewport] = useState(0);
 
-    const [viewport, setViewport] = useState(0);
+  useEffect(() => {
+    setViewport(window.innerWidth);
+  });
 
-    useEffect(() => {
-      setViewport(window.innerWidth);
-    });
-
-    const gallery = () => {
-      if(viewport > 600 && count%3 === 0){
-        return "row-span-2";
-      }
-      if(viewport <= 600 && count%2 === 0){
-        return "row-span-2";
-      }
-      return "";
+  const gallery = () => {
+    if (viewport > 600 && count % 3 === 0) {
+      return 'row-span-2';
     }
-
-    return (
-    <div className={cn("p-2", gallery())}>
-        <div 
-        className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer ">
-          <Image className="w-full h-full" width={2000} height={1000} loading="eager" priority src={path} alt="Preview"/>
-
-        </div>
-    </div>
-    );
+    if (viewport <= 600 && count % 2 === 0) {
+      return 'row-span-2';
+    }
+    return '';
   };
-  
-  export default PictureCard;
+
+  return (
+    <div className={cn('p-2', gallery())}>
+      <div
+        className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer "
+      >
+        <Image className="w-full h-full" width={2000} height={1000} loading="eager" priority src={path} alt="Preview" />
+
+      </div>
+    </div>
+  );
+}
+
+export default PictureCard;
