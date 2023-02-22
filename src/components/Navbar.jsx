@@ -8,7 +8,7 @@ const handleClick = (ref) => {
   if (elem) {
     elem?.blur();
   }
-  scrollNav(ref);
+  scrollNav(ref, 100);
 };
 
 function Navbar({ references }) {

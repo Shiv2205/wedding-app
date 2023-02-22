@@ -1,21 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import WishForm from '@/components/WishForm';
 import { fetchWishes } from './api/firebase/databaseOps';
 
 function Wishes({ wishes }) {
   const [newWish, setNewWish] = useState(false);
+  const newWishRef = useRef(null);
 
   useEffect(() => {
-    if (newWish) {
-      window.scrollTo(0, window.screenY);
+    if(newWish){
+      window.scrollTo({
+        top: newWishRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
       setNewWish(false);
     }
-  }, [newWish]);
+  }, [wishes]);
 
   return (
-    <div id="wishContainer">
-      <div className="mb-40">
+    <div id="wishContainer" ref={newWishRef}>
+      <div className="mb-40" >
         <Navbar references={{}} />
         <div className="divider text-white mt-10 text-5xl">Wishes</div>
         <div className="chat chat-start mt-5">
@@ -34,8 +38,8 @@ function Wishes({ wishes }) {
           </div>
         </div>
         {wishes !== null
-          ? wishes.map((item, index) => (
-            <div key={item.id} className="chat chat-end">
+          ? wishes.map((item) => (
+            <div key={item.id} className="chat chat-end" >
               <div className="chat-bubble mb-5">{item.wish}</div>
             </div>
           ))

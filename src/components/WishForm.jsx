@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { v1 as uuidv1 } from 'uuid';
 import { useRouter } from 'next/router';
 import { makeWish } from '@/pages/api/firebase/databaseOps';
@@ -29,7 +28,7 @@ function WishForm({ newWish }) {
           onChange={(event) => setWish(event.target.value)}
           required
         />
-        <button type="submit" className="btn bg-yellow-500 text-white ">SEND</button>
+        <button type="submit" className="px-5 py-1 rounded-btn bg-yellow-500 text-white">SEND</button>
       </form>
     </footer>
   );
