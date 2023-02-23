@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import WishForm from '@/components/WishForm';
 import { fetchWishes } from './api/firebase/databaseOps';
+import cn from '@/util/cn';
 
 function Wishes({ wishes }) {
   const [newWish, setNewWish] = useState(false);
@@ -39,7 +40,8 @@ function Wishes({ wishes }) {
         </div>
         {wishes !== null
           ? wishes.map((item) => (
-            <div key={item.id} className="chat chat-end" >
+            <div key={item.id} 
+            className={cn("chat ", item.isAdmin ? "chat-start" : "chat-end")} >
               <div className="chat-bubble mb-5">{item.wish}</div>
             </div>
           ))
