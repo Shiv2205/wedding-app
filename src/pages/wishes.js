@@ -55,7 +55,7 @@ function Wishes({ wishes }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const wishesData = await fetchWishes();
   const wishesArray = [];
   Object.keys(wishesData).forEach((key) => {
