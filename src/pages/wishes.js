@@ -65,8 +65,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       wishes: wishesArray,
-    }, 
-    revalidate: 10
+    }
   };
 };
 
