@@ -20,8 +20,15 @@ const fetchSchedule = async () => {
 
 
 const fetchWishes = async () => {
+  console.log("in here");
   const wishRef = ref(db);
-  return (await get(child(wishRef, "database/wishes/"))).val(); 
+  const wishesData = (await get(child(wishRef, "database/wishes/"))).val();
+  const wishesArray = [];
+  Object.keys(wishesData).forEach((key) => {
+    wishesArray.push(wishesData[key]);
+  });
+
+  return wishesArray; 
 }
 
 const makeWish = async (wishId, wishText, admin) => {

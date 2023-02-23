@@ -4,63 +4,51 @@ import WishForm from '@/components/WishForm';
 import { fetchWishes } from './api/firebase/databaseOps';
 import cn from '@/util/cn';
 import { useRouter } from 'next/router';
+import useSWR, { SWRConfig } from 'swr';
+import WishChatScreen from '@/components/WishChatScreen';
 
 function Wishes({ wishes }) {
   const [newWish, setNewWish] = useState(false);
   const newWishRef = useRef(null);
   const router = useRouter();
 
+  const getWishes = async (message = "") => {
+    console.log(message);
+    const wishes = await fetchWishes();
+
+    return wishes;
+  }
+  
+  const { data, error } = useSWR("Revalidating", getWishes, 
+  { refreshInterval: 5000, fallbackData: wishes });
+  console.log(data);
+
   useEffect(() => {
-    if(newWish){
-      window.scrollTo({
-        top: newWishRef.current.scrollHeight,
-        behavior: 'smooth'
-      });
-      setNewWish(false);
-      //router.push('/wishes', '/wishes', {scroll: false});
-    }
-  }, [wishes]);
+    // if(newWish){
+    //   window.scrollTo({
+    //     top: newWishRef.current.scrollHeight,
+    //     behavior: 'smooth'
+    //   });
+    //   setNewWish(false);
+    // }
+    window.scrollTo({
+      top: newWishRef.current.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, [data]);
 
   return (
     <div id="wishContainer" ref={newWishRef}>
-      <div className="mb-40" >
-        <Navbar references={{}} />
-        <div className="divider text-white mt-10 text-5xl">Wishes</div>
-        <div className="chat chat-start mt-5">
-          <div className="chat-bubble mb-5">
-            This is an example of a wish.
-            <br />
-            <p>&quot;Best wishes to the newly weds 💕🎉&quot;</p>
-            <br />
-            <p>
-              From
-              {' '}
-              <i>Your</i>
-              {' '}
-              <i>Name</i>
-            </p>
-          </div>
-        </div>
-        {wishes !== null
-          ? wishes.map((item) => (
-            <div key={item.id} 
-            className={cn("chat ", item.isAdmin ? "chat-start" : "chat-end")} >
-              <div className="chat-bubble mb-5">{item.wish}</div>
-            </div>
-          ))
-          : ''}
-      </div>
+     
+     <WishChatScreen wishes={data} />
+
       <WishForm newWish={setNewWish} />
     </div>
   );
 }
 
 export const getServerSideProps = async () => {
-  const wishesData = await fetchWishes();
-  const wishesArray = [];
-  Object.keys(wishesData).forEach((key) => {
-    wishesArray.push(wishesData[key]);
-  });
+  const wishesArray = await fetchWishes();
 
   return {
     props: {
