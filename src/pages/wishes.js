@@ -20,7 +20,7 @@ function Wishes({ wishes }) {
   }
   
   const { data, error } = useSWR("Revalidating", getWishes, 
-  { refreshInterval: 5000, fallbackData: wishes });
+  { refreshInterval: 2000, fallbackData: wishes });
   console.log(data);
 
   useEffect(() => {
