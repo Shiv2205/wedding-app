@@ -1,11 +1,10 @@
-import Head from 'next/head';
 import FindSeatForm from '@/components/FindSeatForm';
-import Schedule from '../components/schedule';
+import Schedule from '@/components/schedule';
 import { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PictureGrid from '@/components/PictureGrid';
-import { fetchPictures, fetchSchedule, fetchTableList } from './api/firebase/databaseOps';
+import { fetchPictures, fetchSchedule, fetchTableList } from '@/pages/api/firebase/databaseOps';
 import TableCollapseGrid from '@/components/TableCollapseGrid';
 
 // const inter = Inter({ 
@@ -14,9 +13,6 @@ import TableCollapseGrid from '@/components/TableCollapseGrid';
 
 
 export default function Home({ homePictureGrid, dbSchedule, tableList }) {
-
-  
-
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
   const pictureGridRef = useRef(null);

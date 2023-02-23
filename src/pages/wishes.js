@@ -3,10 +3,12 @@ import Navbar from '@/components/Navbar';
 import WishForm from '@/components/WishForm';
 import { fetchWishes } from './api/firebase/databaseOps';
 import cn from '@/util/cn';
+import { useRouter } from 'next/router';
 
 function Wishes({ wishes }) {
   const [newWish, setNewWish] = useState(false);
   const newWishRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     if(newWish){
@@ -15,6 +17,7 @@ function Wishes({ wishes }) {
         behavior: 'smooth'
       });
       setNewWish(false);
+      //router.push('/wishes', '/wishes', {scroll: false});
     }
   }, [wishes]);
 
@@ -52,7 +55,7 @@ function Wishes({ wishes }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const wishesData = await fetchWishes();
   const wishesArray = [];
   Object.keys(wishesData).forEach((key) => {
@@ -62,7 +65,8 @@ export const getServerSideProps = async () => {
   return {
     props: {
       wishes: wishesArray,
-    },
+    }, 
+    revalidate: 10
   };
 };
 

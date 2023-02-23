@@ -24,12 +24,13 @@ const fetchWishes = async () => {
   return (await get(child(wishRef, "database/wishes/"))).val(); 
 }
 
-const makeWish = async (wishId, wishText) => {
+const makeWish = async (wishId, wishText, admin) => {
     const newWishKey = push(child(ref(db, "database/"), "wishes")).key;
     const updates = {};
     updates['/database/wishes/' + newWishKey] = {
       id: wishId,
-      wish: wishText
+      wish: wishText,
+      isAdmin: admin
     }
 
     return await update(ref(db), updates);

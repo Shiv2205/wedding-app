@@ -17,7 +17,7 @@ function Hero({ references }) {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn bg-yellow-500 text-white mt-5 animate-bounce" onClick={() => scrollNav(references)}>Get Started</button>
+          <button className="mask mask-triangle-2 p-3 bg-yellow-500 text-white mt-5 animate-bounce" onClick={() => scrollNav(references)}>Get Started</button>
         </div>
       </div>
     </div>
