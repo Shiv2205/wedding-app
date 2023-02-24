@@ -6,18 +6,8 @@ const WishChatScreen = ({ wishes }) => {
     <div className="mb-40">
       <Navbar references={{}} />
       <div className="divider text-white mt-10 text-5xl">Wishes</div>
-      <div className="chat chat-start mt-5">
-        <div className="chat-bubble mb-5">
-          This is an example of a wish.
-          <br />
-          <p>&quot;Best wishes to the newly weds 💕🎉&quot;</p>
-          <br />
-          <p>
-            From <i>Your</i> <i>Name</i>
-          </p>
-        </div>
-      </div>
-      {wishes !== null
+      <WishExample/>
+      {wishes != null
         ? wishes.map((item) => (
             <div
               key={item.id}
@@ -26,9 +16,25 @@ const WishChatScreen = ({ wishes }) => {
               <div className="chat-bubble mb-5">{item.wish}</div>
             </div>
           ))
-        : ""}
+        : "Loading"}
     </div>
   );
 };
 
 export default WishChatScreen;
+
+const WishExample = () => {
+  return (
+    <div className="chat chat-start mt-5">
+      <div className="chat-bubble mb-5">
+        This is an example of a wish.
+        <br />
+        <p>&quot;Best wishes to the newly weds 💕🎉&quot;</p>
+        <br />
+        <p>
+          From <i>Your</i> <i>Name</i>
+        </p>
+      </div>
+    </div>
+  );
+};

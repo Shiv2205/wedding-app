@@ -7,7 +7,6 @@ const TableCollapse = ({ tableName, seatList }) => {
   return (
     <div
     key={tableName}
-    onClick={() => test(currentTable)}
       className="collapse collapse-plus border border-base-300 bg-base-300 rounded-box"
     >
         <input id={currentTable} type="checkbox" className="peer" /> 
@@ -15,9 +14,9 @@ const TableCollapse = ({ tableName, seatList }) => {
         {tableName} 
       </div>
       <div className="collapse-content">
-       <ul className="list-disc list-inside">
+       <ul className="list-disc list-outside pl-4">
         {
-            seatList.map((item) => <li className="indent-4" key={item}>{item}</li>)
+            seatList.map((item) => <li className="" key={item}>{item}</li>)
         }
        </ul>
       </div>

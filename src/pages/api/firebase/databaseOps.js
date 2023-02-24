@@ -20,7 +20,6 @@ const fetchSchedule = async () => {
 
 
 const fetchWishes = async () => {
-  console.log("in here");
   const wishRef = ref(db);
   const wishesData = (await get(child(wishRef, "database/wishes/"))).val();
   const wishesArray = [];
@@ -29,6 +28,19 @@ const fetchWishes = async () => {
   });
 
   return wishesArray; 
+}
+
+const handleWishUpdate = async () => {
+  let update = [];
+  const wishRef = ref(db, "database/wishes")
+  onValue(wishRef, (snapshot) => {
+    const wishData = snapshot.val();
+    Object.keys(wishData).forEach((key) => {
+      update.push(wishData[key]);
+    });
+  });
+
+  return update;
 }
 
 const makeWish = async (wishId, wishText, admin) => {
@@ -48,4 +60,4 @@ const fetchTableList = async () => {
   return tableList;
 }
 
-export { fetchPictures, fetchSchedule, fetchWishes, makeWish, fetchTableList };
+export { fetchPictures, fetchSchedule, fetchWishes, makeWish, fetchTableList, handleWishUpdate };

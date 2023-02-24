@@ -1,48 +1,35 @@
-import { useState, useEffect, useRef } from 'react';
-import Navbar from '@/components/Navbar';
+import { useState, useEffect, useRef } from 'react';;
 import WishForm from '@/components/WishForm';
-import { fetchWishes } from './api/firebase/databaseOps';
-import cn from '@/util/cn';
-import { useRouter } from 'next/router';
-import useSWR, { SWRConfig } from 'swr';
+import { fetchWishes, handleWishUpdate } from './api/firebase/databaseOps';
+import useSWR from 'swr';
 import WishChatScreen from '@/components/WishChatScreen';
 
 function Wishes({ wishes }) {
-  const [newWish, setNewWish] = useState(false);
   const newWishRef = useRef(null);
-  const router = useRouter();
 
   const getWishes = async (message = "") => {
-    console.log(message);
-    const wishes = await fetchWishes();
-
+    const wishes = await handleWishUpdate();//fetchWishes();
     return wishes;
   }
   
   const { data, error } = useSWR("Revalidating", getWishes, 
   { refreshInterval: 2000, fallbackData: wishes });
-  console.log(data);
+  const [currentData, setCurrentData] = useState(data);
 
   useEffect(() => {
-    // if(newWish){
-    //   window.scrollTo({
-    //     top: newWishRef.current.scrollHeight,
-    //     behavior: 'smooth'
-    //   });
-    //   setNewWish(false);
-    // }
-    window.scrollTo({
-      top: newWishRef.current.scrollHeight,
-      behavior: 'smooth'
-    });
+    if(data.length !== currentData.length){
+      window.scrollTo({
+        top: newWishRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+      setCurrentData(data);
+    }
   }, [data]);
 
   return (
     <div id="wishContainer" ref={newWishRef}>
-     
-     <WishChatScreen wishes={data} />
-
-      <WishForm newWish={setNewWish} />
+      <WishChatScreen wishes={data} />
+      <WishForm/>
     </div>
   );
 }

@@ -30,10 +30,7 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
         }}/>
 
         {/**First Image */}
-        <div>
         <Hero references={findSeatRef}/>
-          
-        </div>
         
         <div className='divider text-2xl' ref={findSeatRef}>Find My Seat</div>
         {/**Find My Seat Form */}
@@ -45,9 +42,7 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
         <TableCollapseGrid tables={tableList.tables}/>
         
         <div className='divider text-2xl' ref={scheduleRef}>Schedule</div>
-        <div >
-          <Schedule timelineItems={dbSchedule} />
-        </div>
+        <Schedule timelineItems={dbSchedule} />
 
         {/**Picture Grid */}
         <div className='divider text-2xl mb-10' ref={pictureGridRef}>Gallery</div>

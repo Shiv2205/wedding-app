@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { v1 as uuidv1 } from 'uuid';
-import { useRouter } from 'next/router';
 import { makeWish } from '@/pages/api/firebase/databaseOps';
 import { chatAdminCheck } from '@/pages/api/cheatCode';
 
-function WishForm({ newWish }) {
+function WishForm() {
   const [wish, setWish] = useState('');
-  const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,8 +13,6 @@ function WishForm({ newWish }) {
     await makeWish(wishId, item.wish, item.isAdmin);
     setWish('');
     document.getElementById('textArea').value = '';
-    router.push('/wishes', '/wishes', { scroll: false });
-    newWish(true);
   };
 
   return (
