@@ -62,7 +62,7 @@ function Navbar({ references }) {
                 className="p-3 hover-bordered hover:cursor-pointer hover:bg-yellow-400 hover:text-black"
                 onClick={() => handleClick(references.pictureGrid)}
               >
-                Picture Grid
+                Gallery
               </li>
               <li
                 className="p-3 hover:cursor-pointer hover:bg-yellow-400 hover:text-black"

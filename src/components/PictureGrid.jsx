@@ -3,7 +3,7 @@ import PictureCard from './PictureCard';
 
 function PictureGrid({ pictureGrid }) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3">
+    <div className=" grid grid-flow-dense grid-cols-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3">
       {
           pictureGrid.map(
             (item, index) => <PictureCard key={uuidv1()} path={item.src} count={index + 1} />,
@@ -14,3 +14,9 @@ function PictureGrid({ pictureGrid }) {
 }
 
 export default PictureGrid;
+
+/**
+ * grid-flow-col auto-cols-max
+ * 
+ * grid-cols-2 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3
+ */

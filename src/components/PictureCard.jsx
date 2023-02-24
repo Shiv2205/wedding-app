@@ -9,18 +9,26 @@ function PictureCard({ path, count }) {
     setViewport(window.innerWidth);
   });
 
-  const gallery = () => {
-    if (viewport > 600 && count % 3 === 0) {
+  const randomTrigger = () => {
+    if (count % 2 === 0) {
+      return true;
+    }
+    return false;
+  };
+
+  const randomStyle = () => {
+    const decision = Math.round(Math.random() * 2);
+    if (decision === 1) {
       return 'row-span-2';
     }
-    if (viewport <= 600 && count % 2 === 0) {
-      return 'row-span-2';
+    if(decision === 2) {
+      return 'col-span-2 ';
     }
-    return '';
+    return 'col-auto row-auto ';
   };
 
   return (
-    <div className={cn('p-2', gallery())}>
+    <div className={cn('p-2 h-full w-full ', randomStyle())}>
       <div
         className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer "
       >
