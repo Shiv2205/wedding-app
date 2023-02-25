@@ -6,10 +6,10 @@ function PictureCard({ path, count }) {
   const randomStyle = () => {
     const decision = Math.round(Math.random() * 2);
     if (decision === 1) {
-      return 'row-span-2 col-auto';
+      return 'row-span-2 ';
     }
     if(decision === 2) {
-      return 'col-span-2 row-auto';
+      return 'col-span-2';
     }
     return 'col-auto row-auto';
   };
