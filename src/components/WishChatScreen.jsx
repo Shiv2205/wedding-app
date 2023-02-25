@@ -12,6 +12,7 @@ const WishChatScreen = ({ wishes }) => {
         ? wishes.map((item) => (
             <div
               key={item.id}
+              id={item.id}
               className={cn("chat ", item.isAdmin ? "chat-start" : "chat-end")}
             >
               <div className="chat-bubble mb-5">{item.wish}</div>

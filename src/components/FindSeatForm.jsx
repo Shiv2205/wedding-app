@@ -20,7 +20,7 @@ function FindSeatForm() {
       />
       <br />
 
-      {/** TOO: Implement arch function */}
+      {/** TODO: Implement arch function */}
       <button className="bg-base-100 rounded-md m-3 p-3">Find Seat</button>
     </div>
   );

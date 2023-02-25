@@ -21,7 +21,7 @@ function PictureCard({ path, count }) {
   });
 
   return (
-    <div className={cn('p-2 h-full w-full justify-self-stretch', viewport)}>
+    <div className={cn('p-2 h-full w-full', viewport)}>
       <div
         className="h-full rounded bg-white overflow-hidden shadow-2xl cursor-pointer "
       >

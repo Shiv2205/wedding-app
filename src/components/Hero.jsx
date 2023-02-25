@@ -7,7 +7,7 @@ function Hero({ references }) {
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1606495186270-395860907235?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")',
+        backgroundImage: 'url("https://images.unsplash.com/photo-1580824456266-c578703e13da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")',
       }}
     >
       <div className="hero-overlay bg-opacity-60" />

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const TableCollapse = ({ tableName, seatList }) => {
     
@@ -16,7 +16,7 @@ const TableCollapse = ({ tableName, seatList }) => {
       <div className="collapse-content">
        <ul className="list-disc list-outside pl-4">
         {
-            seatList.map((item) => <li className="" key={item}>{item}</li>)
+            seatList.map((item) => <li className="" key={uuidv4()}>{item.name}</li>)
         }
        </ul>
       </div>

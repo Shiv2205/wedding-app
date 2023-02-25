@@ -46,7 +46,7 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
         </div>
 
         <div className="divider text-2xl">Tables</div>
-        <TableCollapseGrid tables={tableList.tables} />
+        <TableCollapseGrid tables={tableList} />
 
         <div className="divider text-2xl" ref={scheduleRef}>
           Schedule

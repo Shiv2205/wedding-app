@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { v1 as uuidv1 } from 'uuid';
 import { makeWish } from '@/pages/api/firebase/databaseOps';
 import { chatAdminCheck } from '@/pages/api/cheatCode';
 import { RiSendPlaneFill } from 'react-icons/ri';
@@ -9,9 +8,8 @@ function WishForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const wishId = uuidv1();
     let item = chatAdminCheck(wish);
-    await makeWish(wishId, item.wish, item.isAdmin);
+    await makeWish(item.wish, item.isAdmin);
     document.getElementById('textArea').value = '';
     setWish('');
   };
