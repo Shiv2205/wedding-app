@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';;
+import { useEffect, useRef } from 'react';;
 import WishForm from '@/components/WishForm';
 import { fetchWishes, handleWishUpdate } from './api/firebase/databaseOps';
 import useSWR from 'swr';
@@ -13,22 +13,20 @@ function Wishes({ wishes }) {
   }
   
   const { data, error } = useSWR("Revalidating", getWishes, 
-  { refreshInterval: 2000, fallbackData: wishes });
-  const [currentData, setCurrentData] = useState(data);
+  { refreshInterval: 2000, fallbackData: [] });
 
   useEffect(() => {
-    if(data.length !== currentData.length){
+    if(data.length > wishes.length){
       window.scrollTo({
         top: newWishRef.current.scrollHeight,
         behavior: 'smooth'
       });
-      setCurrentData(data);
     }
   }, [data]);
 
   return (
     <div id="wishContainer" ref={newWishRef}>
-      <WishChatScreen wishes={data} />
+      <WishChatScreen wishes={data.length > 0 ? data : wishes} />
       <WishForm/>
     </div>
   );

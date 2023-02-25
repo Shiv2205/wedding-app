@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import cn from "@/util/cn";
+import FindSeatForm from "./FindSeatForm";
 
 const WishChatScreen = ({ wishes }) => {
   return (
@@ -7,7 +8,7 @@ const WishChatScreen = ({ wishes }) => {
       <Navbar references={{}} />
       <div className="divider text-white mt-10 text-5xl">Wishes</div>
       <WishExample/>
-      {wishes != null
+      {wishes
         ? wishes.map((item) => (
             <div
               key={item.id}
@@ -16,7 +17,7 @@ const WishChatScreen = ({ wishes }) => {
               <div className="chat-bubble mb-5">{item.wish}</div>
             </div>
           ))
-        : "Loading"}
+        : <FindSeatForm/>}
     </div>
   );
 };

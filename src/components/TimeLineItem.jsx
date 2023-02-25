@@ -4,6 +4,11 @@ import cn from '@/util/cn';
 function TimeLineItem({ time, title, description }) {
   const [currentEvent, setCurrentEvent] = useState(false);
   const [crossOff, setCrossOff] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const tick = () => {
+    setDate(new Date());
+  }
 
   useEffect(() => {
     const currentTime = new Date();
@@ -18,7 +23,9 @@ function TimeLineItem({ time, title, description }) {
 
     // Checks if current event
     if (currentTime.getHours() === eventTime.getHours()
-     && (currentTime.getMinutes() - eventTime.getMinutes()) < 20) {
+     && (currentTime.getMinutes() - eventTime.getMinutes()) < 20 || 
+      eventTime.getHours() - currentTime.getHours() === 1 
+     && (eventTime.getMinutes() + 60 - currentTime.getMinutes() < 20)) {
       setCrossOff(false);
       setCurrentEvent(true);
       return;
@@ -34,7 +41,12 @@ function TimeLineItem({ time, title, description }) {
         setCurrentEvent(false);
       }
     }
-  });
+
+    const timerID = setTimeout(() => tick(), 300000);
+    return () => {
+      clearTimeout(timerID)
+    }
+  }, [date]);
 
   return (
     <>
