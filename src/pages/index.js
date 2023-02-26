@@ -1,6 +1,6 @@
 import FindSeatForm from "@/components/FindSeatForm";
 import Schedule from "@/components/schedule";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PictureGrid from "@/components/PictureGrid";
@@ -20,7 +20,7 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
   const pictureGridRef = useRef(null);
-  console.log(tableList);
+  const [findSeat, setFindSeat] = useState({guest: '', style: ''});
 
   return (
     <div>
@@ -42,11 +42,12 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
         </div>
         {/**Find My Seat Form */}
         <div className="mb-10">
-          <FindSeatForm />
+          <FindSeatForm setFindSeat={setFindSeat} />
         </div>
 
         <div className="divider text-2xl">Tables</div>
-        <TableCollapseGrid tables={tableList} />
+        <TableCollapseGrid tables={tableList} findSeatState={findSeat}
+        setFindSeat={setFindSeat} />
 
         <div className="divider text-2xl" ref={scheduleRef}>
           Schedule
