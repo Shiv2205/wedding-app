@@ -16,13 +16,15 @@ function TimeLineItem({ time, title, description }) {
     const eventTime = new Date(
       currentTime.getFullYear(),
       currentTime.getMonth(),
-      currentTime.getDate(),
+      parseInt(timeParts[0], 10) < 12 ? currentTime.getDate() + 1 
+      : currentTime.getDate(), //If event time is less than start time count as next day
       parseInt(timeParts[0], 10),
       parseInt(timeParts[1], 10),
     );
 
     // Checks if current event
-    if (currentTime.getHours() === eventTime.getHours()
+    if(eventTime.getTime() > currentTime.getTime()) {
+      if (currentTime.getHours() === eventTime.getHours()
      && (currentTime.getMinutes() - eventTime.getMinutes()) < 20 || 
       eventTime.getHours() - currentTime.getHours() === 1 
      && (eventTime.getMinutes() + 60 - currentTime.getMinutes() < 20)) {
@@ -30,15 +32,18 @@ function TimeLineItem({ time, title, description }) {
       setCurrentEvent(true);
       return;
     }
+    }
 
     // Checks if time of event has passed and if item should be crossed-off
-    if (currentTime.getHours() > eventTime.getHours()) {
-      setCrossOff(true);
-      setCurrentEvent(false);
-    } else if (currentTime.getHours() === eventTime.getHours()) {
-      if (currentTime.getMinutes() - eventTime.getMinutes() > 20) {
+    if(currentTime.getDate() === eventTime.getDate()) {
+      if (currentTime.getHours() > eventTime.getHours()) {
         setCrossOff(true);
         setCurrentEvent(false);
+      } else if (currentTime.getHours() === eventTime.getHours()) {
+        if (currentTime.getMinutes() - eventTime.getMinutes() > 20) {
+          setCrossOff(true);
+          setCurrentEvent(false);
+        }
       }
     }
 

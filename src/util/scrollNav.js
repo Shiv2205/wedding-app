@@ -1,4 +1,3 @@
-
 /**
  * 
  * @param {*} ref reference to where the page should scroll (using useRef hook)

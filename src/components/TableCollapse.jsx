@@ -14,7 +14,11 @@ const TableCollapse = ({ tableName, seatList, findSeat, setFindSeat }) => {
   const checkFound = () => {
     if(typeof window !== 'undefined') {
       if(!found) {
-        document.getElementById(currentTable).checked = false;
+        const checkBox = document.getElementById(currentTable);
+        if(checkBox)
+        {
+          checkBox.checked = false;
+        }
       }
       else{
         document.getElementById(currentTable).scrollIntoView({
