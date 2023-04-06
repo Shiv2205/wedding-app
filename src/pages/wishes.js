@@ -1,44 +1,57 @@
-import { useEffect, useRef } from 'react';;
-import WishForm from '@/components/WishForm';
-import { fetchWishes, handleWishUpdate } from './api/firebase/databaseOps';
-import useSWR from 'swr';
-import WishChatScreen from '@/components/WishChatScreen';
+import { useEffect, useRef, useState } from "react";
+import WishForm from "@/components/WishForm";
+import {
+  fetchWishesApi
+} from "./api/firebase/databaseOps";
+import WishChatScreen from "@/components/WishChatScreen";
+import io from "socket.io-client";
 
 function Wishes({ wishes }) {
   const newWishRef = useRef(null);
 
-  const getWishes = async (message = "") => {
-    const wishes = await handleWishUpdate();//fetchWishes();
-    return wishes;
-  }
-  
-  const { data, error } = useSWR("Revalidating", getWishes, 
-  { refreshInterval: 2000, fallbackData: [] });
+  const [data, setData] = useState(wishes);
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    if(data.length > wishes.length){
+    setSocket(io.connect('https://wedding-data-api.onrender.com'));//(io.connect("http://localhost:8080"));
+  }, []);
+
+  useEffect(() => {
+    if (!socket) return;
+
+    socket.on('connected', (msg) => {
+      console.log('Connected to websocket successfully ', msg);
+    });
+
+    socket.on('wishUpdate', (resData) => {
+      setData(resData.wishes);
+    });
+  }, [socket]);
+
+  useEffect(() => {
+    if (data.length > wishes.length) {
       window.scrollTo({
         top: newWishRef.current.scrollHeight,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   }, [data]);
 
   return (
     <div id="wishContainer" ref={newWishRef}>
-      <WishChatScreen wishes={data.length > 0 ? data : wishes} />
-      <WishForm/>
+      <WishChatScreen wishes={data.length > wishes.length ? data : wishes} />
+      <WishForm socket={socket} />
     </div>
   );
 }
 
 export const getServerSideProps = async () => {
-  const wishesArray = await fetchWishes();
+  const wishesArray = await fetchWishesApi();
 
   return {
     props: {
       wishes: wishesArray,
-    }
+    },
   };
 };
 

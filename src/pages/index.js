@@ -5,9 +5,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PictureGrid from "@/components/PictureGrid";
 import {
-  fetchPictures,
   fetchSchedule,
-  fetchTableList,
+  fetchTableListApi,
+  fetchPicturesApi
 } from "@/pages/api/firebase/databaseOps";
 import TableCollapseGrid from "@/components/TableCollapseGrid";
 import Link from "next/link";
@@ -93,9 +93,9 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
 }
 
 export const getServerSideProps = async () => {
-  const pictureData = await fetchPictures();
+  const pictureData = await fetchPicturesApi();
   const schedule = await fetchSchedule();
-  const tableList = await fetchTableList();
+  const tableList = await fetchTableListApi();
 
   return {
     props: {
@@ -105,22 +105,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-/**
- * <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-            src={path}/>
-
-<div className='grid text-black grid-cols-2 lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-3' >
-          {
-            pictureGrid.map((item, index) => {
-              return <PictureCard key={index} path={item.src} caption={item.caption} />
-            })
-          }
-        </div>
-
-        <Hero references={findSeatRef}/>
-        <PictureGrid pictureGrid={homePictureGrid}/>
-        <Carousel pictures={homePictureGrid}/>
-        <div className='divider text-2xl' >Tables</div>
-        <TableCollapseGrid/>
- */
