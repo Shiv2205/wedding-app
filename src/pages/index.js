@@ -93,9 +93,15 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
 }
 
 export const getServerSideProps = async () => {
-  const pictureData = await fetchPicturesApi();
-  const schedule = await fetchSchedule();
-  const tableList = await fetchTableListApi();
+
+  // let start = +new Date();
+  // const pictureData = await fetchPicturesApi();
+  // const schedule = await fetchSchedule();
+  // const tableList = await fetchTableListApi();
+  // let end = +new Date();
+  // console.log(`consecutive calls: ${(end -start)/1000}s`);
+
+  const [pictureData, schedule, tableList] = await Promise.all([fetchPicturesApi(), fetchSchedule(), fetchTableListApi()]);
 
   return {
     props: {
