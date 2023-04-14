@@ -5,7 +5,9 @@ import FindSeatForm from "./FindSeatForm";
 const WishChatScreen = ({ wishes }) => {
   return (
     <div className="mb-40">
+      <div className="text-white">
       <Navbar references={{}} />
+      </div>
       <div className="divider text-white mt-10 text-5xl">Wishes</div>
       <WishExample/>
       {wishes

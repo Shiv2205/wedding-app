@@ -15,6 +15,17 @@ const TableCollapseGrid = ({ tables, findSeatState, setFindSeat }) => {
         </div>
      );
 }
+
+export const getServerSideProps = async () => {
+
+    const [tableList] = await Promise.all([fetchPicturesApi()]);
+  
+    return {
+      props: {
+        tables: tableList
+      },
+    };
+  };
  
 export default TableCollapseGrid;
 

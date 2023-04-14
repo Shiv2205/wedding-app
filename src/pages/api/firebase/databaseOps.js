@@ -3,8 +3,8 @@ import database from "./database";
 const fetchPicturesApi = async () => {
   let pictures = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchpics', {
     method: 'GET'
-  }).then(res => res.json());
-  return pictures;
+  });
+  return await pictures.json();
 };
 
 const fetchSchedule = async () => {
@@ -15,8 +15,8 @@ const fetchSchedule = async () => {
 const fetchWishesApi = async () => {
   let wishes = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchwishes', {
     method: 'GET'
-  }).then(res => res.json());
-  return wishes;
+  });
+  return await wishes.json();
 };
 
 const makeWishApi = async (wishText, admin, socket) => {
@@ -31,20 +31,33 @@ const makeWishApi = async (wishText, admin, socket) => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(res => res.json()).then(resData => {socket.emit('wish_sent', {message: 'New Wish Sent'});}).catch(err => console.log(err));
+  }).then(resData => {socket.emit('wish_sent', {message: 'New Wish Sent'});}).catch(err => console.log(err));
 };
 
 const fetchTableListApi = async () => {
   let tables = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchtables', {
     method: 'GET'
-  }).then(res => res.json());
-  return tables;
+  });
+  return await tables.json();
 };
+
+const getProps = async () => {
+  const [schedule, tableList, pictureData] = await Promise.all([fetchSchedule(), fetchTableListApi(), fetchPicturesApi()]);
+
+  return {
+    props: {
+      dbSchedule: schedule,
+      tableList: tableList,
+      homePictureGrid: pictureData
+    },
+  };
+}
 
 export {
   fetchSchedule,
   makeWishApi, 
   fetchPicturesApi,
   fetchTableListApi,
-  fetchWishesApi
+  fetchWishesApi,
+  getProps
 };

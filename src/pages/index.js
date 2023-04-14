@@ -5,9 +5,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PictureGrid from "@/components/PictureGrid";
 import {
-  fetchSchedule,
-  fetchTableListApi,
-  fetchPicturesApi
+  // fetchSchedule,
+  // fetchTableListApi,
+  // fetchPicturesApi
+  getProps
 } from "@/pages/api/firebase/databaseOps";
 import TableCollapseGrid from "@/components/TableCollapseGrid";
 import Link from "next/link";
@@ -16,7 +17,7 @@ import Link from "next/link";
 //   weight: '400',
 //   subsets: ['latin'] })
 
-export default function Home({ homePictureGrid, dbSchedule, tableList }) {
+export default function Home({ dbSchedule, tableList, homePictureGrid }) {//{ homePictureGrid, dbSchedule, tableList }
   const findSeatRef = useRef(null);
   const scheduleRef = useRef(null);
   const pictureGridRef = useRef(null);
@@ -48,6 +49,8 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
         <div className="divider text-2xl">Tables</div>
         <TableCollapseGrid tables={tableList} findSeatState={findSeat}
         setFindSeat={setFindSeat} />
+        {/* <TableCollapseGrid tables={tableList} findSeatState={findSeat}
+        setFindSeat={setFindSeat} /> */}
 
         <div className="divider text-2xl" ref={scheduleRef}>
           Schedule
@@ -92,22 +95,26 @@ export default function Home({ homePictureGrid, dbSchedule, tableList }) {
   );
 }
 
+// export const getServerSideProps = async () => {
+
+//   // let start = +new Date();
+//   // const pictureData = await fetchPicturesApi();
+//   // const schedule = await fetchSchedule();
+//   // const tableList = await fetchTableListApi();
+//   // let end = +new Date();
+//   // console.log(`consecutive calls: ${(end -start)/1000}s`);
+
+//   const [pictureData, schedule, tableList] = await Promise.all([fetchPicturesApi(), fetchSchedule(), fetchTableListApi()]);
+
+//   return {
+//     props: {
+//       homePictureGrid: pictureData,
+//       dbSchedule: schedule,
+//       tableList: tableList,
+//     },
+//   };
+// };
+
 export const getServerSideProps = async () => {
-
-  // let start = +new Date();
-  // const pictureData = await fetchPicturesApi();
-  // const schedule = await fetchSchedule();
-  // const tableList = await fetchTableListApi();
-  // let end = +new Date();
-  // console.log(`consecutive calls: ${(end -start)/1000}s`);
-
-  const [pictureData, schedule, tableList] = await Promise.all([fetchPicturesApi(), fetchSchedule(), fetchTableListApi()]);
-
-  return {
-    props: {
-      homePictureGrid: pictureData,
-      dbSchedule: schedule,
-      tableList: tableList,
-    },
-  };
+  return await getProps();
 };

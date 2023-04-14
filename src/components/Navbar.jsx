@@ -89,7 +89,7 @@ function Navbar({ references }) {
 
       {/** CENTER */}
       <div className="navbar-end">
-        <Link className="btn btn-ghost normal-case text-xl" href="/">
+        <Link className="btn btn-ghost normal-case text-xl text-white" href="/">
           Oy & Manisha
         </Link>
       </div>
