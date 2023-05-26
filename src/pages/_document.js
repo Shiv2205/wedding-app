@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html data-theme="dark" lang="en">
       <Head />
-      <body>
+      <body className='font-aboreto'>
         <Main />
         <NextScript />
       </body>

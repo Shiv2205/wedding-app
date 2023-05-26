@@ -42,11 +42,13 @@ const fetchTableListApi = async () => {
 };
 
 const getProps = async () => {
-  const [schedule, tableList, pictureData] = await Promise.all([fetchSchedule(), fetchTableListApi(), fetchPicturesApi()]);
+  // let start = +new Date();
+  const [tableList, pictureData] = await Promise.all([fetchTableListApi(), fetchPicturesApi()]);
+  // let end = +new Date();
+  // console.log(`consecutive calls: ${(end -start)/1000}s`);
 
   return {
     props: {
-      dbSchedule: schedule,
       tableList: tableList,
       homePictureGrid: pictureData
     },

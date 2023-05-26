@@ -18,7 +18,7 @@ function WishForm({ socket }) {
     <footer className="footer w-full z-10  -mt-14 fixed left-0 bottom-0 p-5 bg-neutral text-neutral-content">
       <form
         className="w-full flex mb-5 justify-between items-center "
-        onSubmit={async (event) => handleSubmit(event)}
+        onSubmit={async (event) => await handleSubmit(event)}
       >
         <textarea
           id="textArea"

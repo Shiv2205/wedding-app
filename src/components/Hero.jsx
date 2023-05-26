@@ -1,13 +1,15 @@
 import scrollNav from "@/util/scrollNav";
-import { FaArrowCircleDown } from 'react-icons/fa'
 import { RxDoubleArrowDown } from 'react-icons/rx';
 
 function Hero({ references }) {
+
   return (
     <div
       className="hero min-h-screen"
       style={{
         backgroundImage: 'url("https://images.unsplash.com/photo-1580824456266-c578703e13da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")',
+        width: 'auto',
+        height: 'auto'
       }}
     >
       <div className="hero-overlay bg-opacity-60" />
@@ -32,15 +34,3 @@ function Hero({ references }) {
 }
 
 export default Hero;
-
-/**
- * <button
-            className="mask mask-triangle-2 p-3 bg-yellow-500
-           text-white mt-5 animate-bounce"
-            onClick={() => scrollNav(references)}
-          >
-            Get Started
-          </button>
-
-          /test_img.jpg
- */
