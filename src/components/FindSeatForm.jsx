@@ -2,8 +2,8 @@ function FindSeatForm({ setFindSeat }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const name = (document.forms['findSeat']['firstName'].value + " "
-   + document.forms['findSeat']['lastName'].value);
+    const name = (document.forms['findSeat']['firstName'].value.trim() + " "
+   + document.forms['findSeat']['lastName'].value.trim());
     setFindSeat({guest: name, style: ''});
   }
 
