@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import cn from "@/util/cn";
+import Tilt from "react-parallax-tilt";
 
 function PictureCard({ path, count }) {
   const randomStyle = () => {
@@ -23,22 +24,24 @@ function PictureCard({ path, count }) {
   });
 
   return (
-    <div className={cn("p-2 h-full w-full  ", viewport)}>
-      <div
-        className="h-full rounded-lg bg-white overflow-hidden 
+    <Tilt>
+      <div className={cn("p-2 h-full w-full  ", viewport)}>
+        <div
+          className="h-full rounded-lg bg-white overflow-hidden 
           shadow-2xl shadow-black cursor-pointer "
-      >
-        <Image
-          className="w-full h-full"
-          width={870}
-          height={580}
-          loading="eager"
-          priority
-          src={path}
-          alt="Preview"
-        />
+        >
+          <Image
+            className="w-full h-full"
+            width={870}
+            height={580}
+            loading="eager"
+            priority
+            src={path}
+            alt="Preview"
+          />
+        </div>
       </div>
-    </div>
+    </Tilt>
   );
 }
 

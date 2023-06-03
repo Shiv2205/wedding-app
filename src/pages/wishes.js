@@ -13,7 +13,7 @@ function Wishes({ wishes }) {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    setSocket(io.connect('https://wedding-data-api.onrender.com'));//(io.connect("http://localhost:8080"));
+    setSocket(io.connect('https://node-firebase-pi.vercel.app'));//(io.connect("https://wedding-data-api.onrender.com"));
   }, []);
 
   useEffect(() => {
