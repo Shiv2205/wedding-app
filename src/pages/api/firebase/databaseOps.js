@@ -1,7 +1,7 @@
 import database from "./database";
 
 const fetchPicturesApi = async () => {
-  let pictures = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchpics', {
+  let pictures = await fetch('https://node-firebase-pi.vercel.app/api-endpoints/fetchpics', {//https://wedding-data-api.onrender.com/api-endpoints/fetchpics
     method: 'GET'
   });
   return await pictures.json();
@@ -13,14 +13,14 @@ const fetchSchedule = async () => {
 };
 
 const fetchWishesApi = async () => {
-  let wishes = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchwishes', {
+  let wishes = await fetch('https://node-firebase-pi.vercel.app/api-endpoints/fetchwishes', {//https://wedding-data-api.onrender.com/api-endpoints/fetchwishes
     method: 'GET'
   });
   return await wishes.json();
 };
 
 const makeWishApi = async (wishText, admin, socket) => {
-  fetch('https://wedding-data-api.onrender.com/api-endpoints/post/makewish', {
+  fetch('https://node-firebase-pi.vercel.app/api-endpoints/makewish', {//https://wedding-data-api.onrender.com/api-endpoints/post/makewish
     method: 'POST',
     body: JSON.stringify(
       {
@@ -35,7 +35,7 @@ const makeWishApi = async (wishText, admin, socket) => {
 };
 
 const fetchTableListApi = async () => {
-  let tables = await fetch('https://wedding-data-api.onrender.com/api-endpoints/fetchtables', {
+  let tables = await fetch('https://node-firebase-pi.vercel.app/api-endpoints/fetchtables', {//https://wedding-data-api.onrender.com/api-endpoints/fetchtables
     method: 'GET'
   });
   return await tables.json();
