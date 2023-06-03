@@ -20,7 +20,7 @@ const fetchWishesApi = async () => {
 };
 
 const makeWishApi = async (wishText, admin, socket) => {
-  fetch('https://node-firebase-pi.vercel.app/api-endpoints/makewish', {//https://wedding-data-api.onrender.com/api-endpoints/post/makewish
+  fetch('https://node-firebase-pi.vercel.app/api-endpoints/post/makewish', {//https://wedding-data-api.onrender.com/api-endpoints/post/makewish
     method: 'POST',
     body: JSON.stringify(
       {
