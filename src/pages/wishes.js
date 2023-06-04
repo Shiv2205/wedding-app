@@ -11,6 +11,7 @@ function Wishes({ wishes }) {
 
   const [data, setData] = useState(wishes);
   const [socket, setSocket] = useState(null);
+  const log = console.log;
 
   const dev_server = 'http://localhost:8080';
   const prod_server = 'https://node-firebase-pi.vercel.app';//"https://wedding-data-api.onrender.com"
@@ -18,14 +19,14 @@ function Wishes({ wishes }) {
   const back_end = prod_server;
 
   useEffect(() => {
-    setSocket(io(back_end));//io.connect(back_end)); 
+    setSocket(io(back_end, {transports: ['websocket']}));//io.connect(back_end)); 
   }, []);
 
   useEffect(() => {
     if (!socket) return;
 
     socket.on('connected', (msg) => {
-      console.log('Connected to websocket successfully ', msg);
+      log('Connected to websocket successfully ', msg);
     });
 
     socket.on('wishUpdate', (resData) => {
