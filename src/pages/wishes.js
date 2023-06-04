@@ -4,7 +4,7 @@ import {
   fetchWishesApi
 } from "./api/firebase/databaseOps";
 import WishChatScreen from "@/components/WishChatScreen";
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 
 function Wishes({ wishes }) {
   const newWishRef = useRef(null);
@@ -18,7 +18,7 @@ function Wishes({ wishes }) {
   const back_end = prod_server;
 
   useEffect(() => {
-    setSocket(io.connect(back_end));
+    setSocket(io(back_end));//io.connect(back_end)); 
   }, []);
 
   useEffect(() => {
