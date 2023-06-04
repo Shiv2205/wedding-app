@@ -4,7 +4,8 @@ import cn from "@/util/cn";
 import Tilt from "react-parallax-tilt";
 
 function PictureCard({ path, count }) {
-  const randomStyle = () => {
+  /*
+   const randomStyle = () => {
     const decision = Math.round(Math.random() * 2);
     if (count % 2 !== 0) {
       if (decision === 1) {
@@ -16,6 +17,21 @@ function PictureCard({ path, count }) {
     }
     return "col-auto row-auto";
   };
+   */
+
+  const randomStyle = () => {
+    const decision = Math.round(Math.random() * 2);
+    if (count % 2 !== 0) {
+      if (decision === 1) {
+        return {tiltX: 30, tiltY: 20};
+      }
+      if (decision === 2) {
+        return {tiltX: 15, tiltY: 45};
+      }
+    }
+    return {tiltX: 10, tiltY: 40};
+  };
+  
 
   const [viewport, setViewport] = useState(randomStyle());
 
@@ -24,8 +40,8 @@ function PictureCard({ path, count }) {
   });
 
   return (
-    <Tilt>
-      <div className={cn("p-2 h-full w-full  ", viewport)}>
+    <Tilt tiltAngleXInitial={viewport.tiltX} tiltAngleYInitial={viewport.tiltY}>
+      <div className="p-2 h-full w-full ">
         <div
           className="h-full rounded-lg bg-white overflow-hidden 
           shadow-2xl shadow-black cursor-pointer "

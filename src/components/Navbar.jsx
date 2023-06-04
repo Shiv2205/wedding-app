@@ -22,7 +22,7 @@ function Navbar({ references }) {
   });
 
   return (
-    <div className="navbar bg-yellow-500 sticky top-0 z-10">
+    <div className="navbar bg-yellow-500 sticky top-0 z-20 transform translate-z-28"> 
       <div className="navbar-start">
         <div className="dropdown dropdown-right">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
