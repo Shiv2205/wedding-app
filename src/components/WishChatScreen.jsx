@@ -20,7 +20,9 @@ const WishChatScreen = ({ wishes }) => {
               <div className="chat-bubble mb-5">{item.wish}</div>
             </div>
           ))
-        : <FindSeatForm/>}
+        // : <FindSeatForm/>
+        : ''
+      }
     </div>
   );
 };

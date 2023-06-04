@@ -37,7 +37,7 @@ function PictureCard({ path, count }) {
 
   useEffect(() => {
     setViewport(randomStyle());
-  });
+  }, []);
 
   return (
     <Tilt tiltAngleXInitial={viewport.tiltX} tiltAngleYInitial={viewport.tiltY}>
