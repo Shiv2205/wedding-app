@@ -13,10 +13,10 @@ function Wishes({ wishes }) {
   const [socket, setSocket] = useState(null);
   const log = console.log;
 
-  const dev_server = 'http://localhost:8080';
-  const prod_server = 'https://node-firebase-pi.vercel.app';//"https://wedding-data-api.onrender.com"
+  // const dev_server = 'http://localhost:8080';
+  // const prod_server = 'https://node-firebase-pi.vercel.app';//"https://wedding-data-api.onrender.com"
 
-  const back_end = prod_server;
+  // const back_end = prod_server;
 
   useEffect(() => {
     setSocket(io("https://wedding-data-api.onrender.com", {transports: ['websocket']}));//io.connect(back_end)); 

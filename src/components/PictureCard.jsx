@@ -23,15 +23,14 @@ function PictureCard({ path, count }) {
     const decision = Math.round(Math.random() * 2);
     if (count % 2 !== 0) {
       if (decision === 1) {
-        return {tiltX: 30, tiltY: 20};
+        return { tiltX: 30, tiltY: -20 };
       }
       if (decision === 2) {
-        return {tiltX: 15, tiltY: 45};
+        return { tiltX: -15, tiltY: 45 };
       }
     }
-    return {tiltX: 10, tiltY: 40};
+    return { tiltX: 10, tiltY: 40 };
   };
-  
 
   const [viewport, setViewport] = useState(randomStyle());
 
@@ -40,7 +39,13 @@ function PictureCard({ path, count }) {
   }, []);
 
   return (
-    <Tilt tiltAngleXInitial={viewport.tiltX} tiltAngleYInitial={viewport.tiltY}>
+    <Tilt
+      tiltAngleXInitial={viewport.tiltX}
+      tiltAngleYInitial={viewport.tiltY}
+      gyroscope={true}
+      tiltMaxAngleX={45}
+      tiltMaxAngleY={45}
+    >
       <div className="p-2 h-full w-full ">
         <div
           className="h-full rounded-lg bg-white overflow-hidden 
@@ -50,8 +55,8 @@ function PictureCard({ path, count }) {
             className="w-full h-full"
             width={870}
             height={580}
-            loading="eager"
-            priority
+            loading="lazy"
+            // priority
             src={path}
             alt="Preview"
           />

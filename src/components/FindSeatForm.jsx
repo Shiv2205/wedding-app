@@ -8,7 +8,7 @@ function FindSeatForm({ setFindSeat }) {
   }
 
   return (
-    <div className="max-w-sm rounded bg-yellow-500 ml-5 pl-5 overflow-hidden shadow-2xl cursor-pointer">
+    <div className="max-w-sm rounded bg-yellow-500 pl-5 overflow-hidden pr-5 shadow-2xl cursor-pointer grow">
       <form name="findSeat" onSubmit={(e) => handleSubmit(e)}>
         <br />
         <input
@@ -16,7 +16,7 @@ function FindSeatForm({ setFindSeat }) {
           id="firstName"
           name="firstName"
           placeholder="First Name"
-          className="border-2 border-black mb-5 pl-1 w-5/6"
+          className="border-2 rounded-l-full rounded-r-full border-black mb-5 pl-1 w-full"
           required
         />
         <br />
@@ -25,12 +25,14 @@ function FindSeatForm({ setFindSeat }) {
           id="lastName"
           name="lastName"
           placeholder="Last Name"
-          className="border-2 border-black mb-2 pl-1 w-5/6"
+          className="border-2 rounded-l-full rounded-r-full border-black mb-2 pl-1 w-full"
         />
         <br />
 
         {/** TODO: Implement arch function */}
+        <div className="flex justify-center">
         <button type="submit" className="bg-base-100 rounded-md m-3 p-3">Find Seat</button>
+        </div>
       </form>
     </div>
   );

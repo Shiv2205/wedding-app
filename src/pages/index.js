@@ -37,7 +37,7 @@ export default function Home({ tableList, homePictureGrid }) {
           Find My Seat
         </div>
         {/**Find My Seat Form */}
-        <div className="mb-10">
+        <div className="flex justify-center">
           <FindSeatForm setFindSeat={setFindSeat} />
         </div>
 
@@ -53,8 +53,8 @@ export default function Home({ tableList, homePictureGrid }) {
         </div>
         <Schedule timelineItems={dbSchedule.database.schedule} />
 
-        <div className="lg:w-2/3 md:w-3/4">
-          <div className="alert alert-warning shadow-lg">
+        <div className="flex justify-center"> {/* lg:w-2/3 md:w-3/4 */}
+          <div className="alert alert-warning shadow-lg md:basis-5/6 lg:basis-1/2">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,20 +70,20 @@ export default function Home({ tableList, homePictureGrid }) {
                 ></path>
               </svg>
               <div>
-                <h3 className="font-bold">Make A Wish!</h3>
+                <h3 className="font-bold text-2xl underline">Make A Wish!</h3>
                 <div className="text-md">
                   Head over to the Wishes page and send your blessings and love
                   to the bride & groom.
                 </div>
               </div>
-            </div>
-            <div className="flex-auto ">
+              <div className="pl-5">
               <Link
                 href="/wishes"
-                className="btn btn-sm bg-base-100 text-white"
+                className="btn btn-md bg-base-100 text-white"
               >
                 Let's Go!
               </Link>
+            </div>
             </div>
           </div>
         </div>
