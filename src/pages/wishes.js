@@ -19,7 +19,7 @@ function Wishes({ wishes }) {
   const back_end = prod_server;
 
   useEffect(() => {
-    setSocket(io(back_end, {transports: ['websocket']}));//io.connect(back_end)); 
+    setSocket(io("https://wedding-data-api.onrender.com", {transports: ['websocket']}));//io.connect(back_end)); 
   }, []);
 
   useEffect(() => {
