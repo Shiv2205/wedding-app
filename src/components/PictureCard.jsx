@@ -26,13 +26,14 @@ function PictureCard({ path, count }) {
         return { tiltX: 30, tiltY: -20 };
       }
       if (decision === 2) {
-        return { tiltX: -15, tiltY: 45 };
+        return { tiltX: -15, tiltY: 35 };
       }
     }
-    return { tiltX: 10, tiltY: 40 };
+    return { tiltX: 10, tiltY: 10 };
   };
 
   const [viewport, setViewport] = useState(randomStyle());
+  const max_angle = 35;
 
   useEffect(() => {
     setViewport(randomStyle());
@@ -42,9 +43,9 @@ function PictureCard({ path, count }) {
     <Tilt
       tiltAngleXInitial={viewport.tiltX}
       tiltAngleYInitial={viewport.tiltY}
-      gyroscope={true}
-      tiltMaxAngleX={45}
-      tiltMaxAngleY={45}
+      reset={false}
+      tiltMaxAngleX={max_angle}
+      tiltMaxAngleY={max_angle}
     >
       <div className="p-2 h-full w-full ">
         <div
